@@ -39,44 +39,51 @@
 import { useGameStore } from '../../../store/gameStore';
 import { reactive } from 'vue';
 
+import turtle1 from '@/assets/turtle.png'
+import turtle2 from '@/assets/turtle-2.png'
+import turtle3 from '@/assets/turtle-3.png'
+import turtle4 from '@/assets/turtle-4.png'
+import turtle5 from '@/assets/turtle-5.png'
+import turtle6 from '@/assets/turtle-6.png'
+
 const store = useGameStore();
 
 const dataSkins = reactive([
     {
         id: 0,
         price: 0,
-        src: 'src/assets/turtle.png',
+        src: turtle1,
         info: 'Обычная черепаха'
     },
     {
         id: 1,
         price: 8888,
-        src: 'src/assets/turtle-2.png',
+        src: turtle2,
         info: 'Трик в черепашьем измерении'
     },
     {
         id: 2,
         price: 300,
-        src: 'src/assets/turtle-3.png',
+        src: turtle3,
         info: 'Одна из трехсот черепахоспартанцев'
     },
     {
         id: 3,
         price: 4444,
-        src: 'src/assets/turtle-4.png',
+        src: turtle4,
         info: 'Говорят, что отец этой черепахи - крыса'
     },
     {
         id: 4,
         price: 99999,
-        src: 'src/assets/turtle-5.png',
+        src: turtle5,
         info: 'По рассказам ИИ эта черепаха жила в матрице'
     },
     {
         id: 5,
         price: null,
         priceLevel: 5500,
-        src: 'src/assets/turtle-6.png',
+        src: turtle6,
         info: 'Купи за 9999 уровней, чтобы расскрыть X-материал!',
         secretInfo: 'I WANT TO BELIEVE in Turtilnick 2.0',
         secret: true
