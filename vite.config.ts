@@ -7,5 +7,10 @@ export default defineConfig({
   build: {
     outDir: 'dist'
   },
-  base: '/turtle-clicker-vue/'
+  base: '/turtle-clicker-vue/',
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
 })
