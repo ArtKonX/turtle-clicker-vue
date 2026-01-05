@@ -101,12 +101,13 @@ function handleTouchStart(event) {
 }
 
 function createCoinAtTouch(touch, fingerIndex) {
+    if (!fingerIndex) return
+
     const containerEl = document.querySelector('.clicker-container');
     const containerRect = containerEl.getBoundingClientRect();
 
-    const offset = fingerIndex * 15;
-    const coinX = touch.clientX + offset;
-    const coinY = touch.clientY - containerRect.top - 130 - offset;
+    const coinX = touch.clientX;
+    const coinY = touch.clientY - containerRect.top - 130;
 
     const coin = {
         id: Date.now() + Math.random() + + fingerIndex,
