@@ -683,6 +683,8 @@ function handleClick(event) {
 .turtle-container {
     position: absolute;
     height: 100%;
+    width: 100vw;
+    justify-content: center;
     display: flex;
     align-items: center;
     // margin-top: 25%;
