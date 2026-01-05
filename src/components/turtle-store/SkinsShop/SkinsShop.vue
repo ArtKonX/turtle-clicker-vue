@@ -139,6 +139,7 @@ function buySecretGame(indx) {
     button {
         background-color: #1A1A1A !important;
         color: white;
+          padding: 10px;
     }
 
     img {

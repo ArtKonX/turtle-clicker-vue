@@ -30,7 +30,7 @@
         <div class="energy-and-bonus">
             <div style="display: flex; flex-direction: column; align-items: start;">
                 <span>
-                    Увеличь бонус с каждого тапа:
+                    Увеличь бонус +1 с каждого тапа:
                 </span>
                 <div class="level-and-price">
                     <span>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <button @click="store.buyBonus" :disabled="store.score < (store.energyAndBonusData[1].level * 100) || store.energyAndBonusData[1].level >= 22">
-                {{store.energyAndBonusData[1].level < 22 ? 'Купить +1' : 'Max'}}
+                {{store.energyAndBonusData[1].level < 22 ? 'Купить' : 'Max'}}
             </button>
         </div>
     </div>
@@ -110,6 +110,10 @@ onUnmounted(() => {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+
+    button {
+          padding: 10px;
+    }
 
     span {
         text-align: start;

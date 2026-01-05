@@ -8,18 +8,19 @@
                         Уровень: {{ store.incomeData[value.id].level }}
                     </span>
                     <span v-if="store.incomeData[value.id].level < dataShop[0].maxLevel">
-                        Цена: {{ (store.incomeData[value.id].ratioPrice * value.price).toFixed(1) }}
+                        Цена: {{ (store.incomeData[value.id].ratioPrice * value.price).toFixed(0) > 1000 ? ((store.incomeData[value.id].ratioPrice * value.price).toFixed(0) / 1000).toFixed(0) + 'k' : (store.incomeData[value.id].ratioPrice * value.price).toFixed(1) }}
                     </span>
                 </div>
             </div>
             <div class="income-and-btn">
                 <span class="income">
-                    Доход: {{ (store.incomeData[value.id].ratioBonus * value.income).toFixed(1) }}
+                    Доход: {{ (store.incomeData[value.id].ratioBonus * value.income).toFixed(0) > 1000 ?
+                        (Number((store.incomeData[value.id].ratioBonus * value.income).toFixed(0)) / 1000).toFixed(0) + 'k'
+                        : (store.incomeData[value.id].ratioBonus * value.income).toFixed(1) }}
                 </span>
                 <button class="shop__btn" @click="store.buyIncome(value.income, value.price, value.id)"
                     :disabled="(value.price > store.score) || (store.incomeData[value.id].level >= dataShop[0].maxLevel)">
-                    {{ (store.incomeData[value.id].level < dataShop[0].maxLevel) ? 'Купить' : 'Max'}}
-                </button>
+                    {{ (store.incomeData[value.id].level < dataShop[0].maxLevel) ? 'Купить' : 'Max' }} </button>
             </div>
         </div>
     </div>
@@ -77,7 +78,9 @@ const dataShop = reactive([
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin-bottom: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 .shop__cart {
@@ -85,6 +88,10 @@ const dataShop = reactive([
     justify-content: space-between;
     width: 100%;
     margin-top: 10px;
+
+    @media screen and (max-width: 720px) {
+        align-items: end;
+    }
 }
 
 .shop__cart-info {
@@ -110,24 +117,28 @@ const dataShop = reactive([
 
     @media screen and (max-width: 720px) {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: end;
     }
 }
 
 .income {
-    margin-right: 10px;
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     color: white;
     opacity: 0.6;
-    margin-bottom: 5px;
+    max-width: 100px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+
+    @media screen and (max-width: 720px) {
+        margin-right: 0px;
+    }
 }
 
 .shop__btn {
-    padding: 0.6em 1.2em;
+    padding: 10px;
     background-color: #1A1A1A;
     color: white;
     border: none;

@@ -132,11 +132,12 @@ function selectIndxMenu(indx) {
                 justify-content: space-between;
                 width: 100%;
                 margin-top: 10px;
+                align-items: end;
 
                 .shop__cart-info {
                     display: flex;
                     flex-direction: column;
-                    align-items: start;
+                    align-items: end;
                 }
             }
         }

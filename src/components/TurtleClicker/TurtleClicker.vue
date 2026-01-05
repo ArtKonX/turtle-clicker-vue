@@ -95,20 +95,21 @@ function handleTouchStart(event) {
         if (store.energy > 0 && store.energy >= store.bonusMultiplier) {
             store.click();
 
-            createCoinAtTouch(touch);
+            createCoinAtTouch(touch, i);
         }
     }
 }
 
-function createCoinAtTouch(touch) {
+function createCoinAtTouch(touch, fingerIndex) {
     const containerEl = document.querySelector('.clicker-container');
     const containerRect = containerEl.getBoundingClientRect();
 
-    const coinX = touch.clientX;
-    const coinY = touch.clientY - containerRect.top - 130;
+    const offset = fingerIndex * 15;
+    const coinX = touch.clientX + offset;
+    const coinY = touch.clientY - containerRect.top - 130 - offset;
 
     const coin = {
-        id: Date.now() + Math.random() + i,
+        id: Date.now() + Math.random() + + fingerIndex,
         x: coinX,
         y: coinY,
         delay: Math.random() * 0.2,
@@ -894,6 +895,7 @@ function handleClick(event) {
 }
 
 .coin-img {
+
     width: 100px;
     height: 100px;
     filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
