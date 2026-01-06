@@ -100,3 +100,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+a,
+button,
+input,
+textarea,
+select,
+label,
+div[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -moz-outline: none;
+  -ms-outline: none;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.no-select,
+button,
+a,
+[role="button"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
