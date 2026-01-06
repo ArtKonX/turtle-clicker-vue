@@ -223,7 +223,7 @@ export const useGameStore = defineStore('game', {
                 }
 
                 this.incomeAll += (income * this.incomeData[findIndxIncome].ratioBonus);
-                this.score -= (price * this.incomeData[findIndxIncome].ratioPrice);
+                this.score -= (price);
                 this.saveToStorage();
             }
         },

@@ -18,8 +18,8 @@
                         (Number((store.incomeData[value.id].ratioBonus * value.income).toFixed(0)) / 1000).toFixed(0) + 'k'
                         : (store.incomeData[value.id].ratioBonus * value.income).toFixed(1) }}
                 </span>
-                <button class="shop__btn" @click="store.buyIncome(value.income, value.price, value.id)"
-                    :disabled="(value.price > store.score) || (store.incomeData[value.id].level >= dataShop[0].maxLevel)">
+                <button class="shop__btn" @click="store.buyIncome(value.income, (store.incomeData[value.id].ratioPrice * value.price), value.id)"
+                    :disabled="((store.incomeData[value.id].ratioPrice * value.price) > store.score) || (store.incomeData[value.id].level >= dataShop[0].maxLevel)">
                     {{ (store.incomeData[value.id].level < dataShop[0].maxLevel) ? 'Купить' : 'Max' }} </button>
             </div>
         </div>
