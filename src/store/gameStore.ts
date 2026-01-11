@@ -151,11 +151,13 @@ export const useGameStore = defineStore('game', {
                 this.saveToStorage();
             }
         },
+
         saveScore(score: number) {
             this.score = score;
             this.allScore = score;
             this.saveToStorage();
         },
+
         saveLastDate() {
             if (this.incomeAll > 0) {
                 this.lastSaveTime = new Date()

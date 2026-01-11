@@ -14,7 +14,7 @@
         <div class="turtle-container">
             <div class="turtle"
                 :class="{ 'shake': isShaking, 'active': store.energy > 0 && store.energy > store.bonusMultiplier }"
-                @touchstart="handleTouchStart" @click="handleClick">
+                @touchstart="handleTouchStart">
                 <img :src="dataSkins[store.selectedSkinIndx].src" alt="Черепаха" />
             </div>
         </div>
@@ -337,6 +337,7 @@ function selectIndxMenu(indx) {
 
 function handleClick(event) {
     if (store.energy > 0 && store.energy >= store.bonusMultiplier) {
+
         store.click();
 
         isShaking.value = true;
@@ -687,7 +688,6 @@ function handleClick(event) {
     justify-content: center;
     display: flex;
     align-items: center;
-    // margin-top: 25%;
     bottom: -25%;
 
     @media screen and (max-width: 720px) {
