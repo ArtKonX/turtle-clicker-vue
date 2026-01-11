@@ -508,6 +508,7 @@ function handleClick(event) {
 
 .clicker-container {
     max-width: 1200px;
+    margin: 0 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -516,7 +517,6 @@ function handleClick(event) {
     padding: 20px 0;
     box-sizing: border-box;
     height: 100%;
-    position: relative;
     overflow: hidden;
 }
 
@@ -735,6 +735,7 @@ function handleClick(event) {
         height: 280px;
         max-width: 400px;
         width: auto;
+        -webkit-tap-highlight-color: transparent;
 
         @media screen and (max-width: 720px) {
             & {
@@ -891,6 +892,8 @@ function handleClick(event) {
     z-index: 1000;
     height: 40%;
     bottom: 0;
+    margin: 0;
+    padding: 0;
     pointer-events: none;
     padding-bottom: 50px;
     z-index: 10;
